@@ -32,15 +32,14 @@ To access the redis cluster outside of docker, port 6379 needs to be expose. Thi
       - "6379:6379"
 ...
 ```
-1. remove docker stack
-```bash
-bash scripts/cleanup.sh
-```
 1. test redis cluster
 ```bash
 bash scripts/test_init.sh
 ```
-
+1. remove docker stack
+```bash
+bash scripts/cleanup.sh
+```
 ## Details
 
 A docker service called `redis-zero` is created to serve as the initial master for the redis sentinels to setup. The `redis-look` instances watches the redis sentinels for a master, and connects to `redis-zero` once a master has been decided. Once the dust has settled, remove the `redis-zero` instance and wait for failover to take over so a new redis-master will take over. Use `redis-utils` to reset sentinels so that its metadata is accurate with the correct state.

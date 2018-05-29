@@ -1,6 +1,5 @@
 version: '3.1'
 
-
 services:
 
   redis-sentinel:
@@ -14,6 +13,7 @@ services:
       - redis
     posts:
       - 6379:6379
+
   redis:
     image: thomasjpfan/redis-look:${TAG:-latest}
     environment:
