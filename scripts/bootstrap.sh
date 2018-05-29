@@ -9,12 +9,15 @@ NUM_OF_REDIS=3
 REDIS_SENTINEL_NAME="redis-sentinel"
 REDIS_MASTER_NAME="redismaster"
 
+step 1
 echo "Starting redis-zero"
 docker service create --network redis --name redis-zero registry.docker-cn.com/library/redis:4.0.9-alpine
 
+step 2
 echo "Starting services"
 docker stack deploy -c scripts/docker-compose.yml cache
 
+step 3
 until [ "$(docker run --rm --network redis registry.int.mimikko.cn/redis-utils:$TAG \
 	$REDIS_SENTINEL_NAME $REDIS_MASTER_NAME \
 	value num-other-sentinels)" = "$((NUM_OF_SENTINELS - 1))" ]; do
@@ -33,6 +36,7 @@ old_master=$(docker run --rm --network redis registry.int.mimikko.cn/redis-utils
 	$REDIS_SENTINEL_NAME $REDIS_MASTER_NAME value ip)
 echo "redis-zero ip is ${old_master}"
 
+step 4
 echo "Removing redis-zero"
 docker service rm redis-zero
 
