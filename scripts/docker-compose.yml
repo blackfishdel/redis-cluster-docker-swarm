@@ -12,7 +12,8 @@ services:
     networks:
       - redis
     posts:
-      - 6379:6379
+      - "6379:6379"
+
 
   redis:
     image: registry.int.mimikko.cn/redis-look:${TAG:-latest}
