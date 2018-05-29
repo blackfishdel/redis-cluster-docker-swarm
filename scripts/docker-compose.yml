@@ -12,7 +12,8 @@ services:
       replicas: 3
     networks:
       - redis
-
+    posts:
+      - 6379:6379
   redis:
     image: thomasjpfan/redis-look:${TAG:-latest}
     environment:

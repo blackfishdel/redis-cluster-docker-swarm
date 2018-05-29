@@ -1,31 +1,27 @@
 # Redis Cluster Cache for Docker Swarm
 
-[![CircleCI](https://circleci.com/gh/thomasjpfan/redis-cluster-docker-swarm/tree/master.svg?style=svg)](https://circleci.com/gh/thomasjpfan/redis-cluster-docker-swarm/tree/master)
-
 Quick and dirty Redis cluster taking advantage of Redis Sentinel for automatic failover. Persistence is turned off by default.
 
 ## Usage
 
-0. Setup docker swarm
+1. Setup docker swarm
+1. build images
+```bash
+bash scripts/build.sh
+```
 1. Create a overlay network:
-
 ```bash
 docker network create --attachable --driver overlay redis
 ```
-
-2. Modify scripts/docker-compose.yml to how you want to deploy the stack.
-3. Run `scripts/bootstrap.sh`.
-
+1. Modify scripts/docker-compose.yml to how you want to deploy the stack.
+1. Run `scripts/bootstrap.sh`.
 ```bash
 bash scripts/bootstrap.sh latest
 ```
-
-4. Connect to with redis-cli
-
+1. Connect to with redis-cli
 ```bash
-docker run --rm --network redis -ti redis:4.0.9-alpine redis-cli -h redis
+docker run --rm --network redis -ti registry.docker-cn.com/library/redis:4.0.9-alpine redis-cli -h redis
 ```
-
 To access the redis cluster outside of docker, port 6379 needs to be expose. This can be done by adding ports to the docker-compose file:
 
 ```yaml
@@ -35,6 +31,14 @@ To access the redis cluster outside of docker, port 6379 needs to be expose. Thi
     ports:
       - "6379:6379"
 ...
+```
+1. remove docker stack
+```bash
+bash scripts/cleanup.sh
+```
+1. test redis cluster
+```bash
+bash scripts/test_init.sh
 ```
 
 ## Details
