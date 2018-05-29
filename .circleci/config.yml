@@ -47,26 +47,26 @@ jobs:
               SENTINEL_VERSION="${sentinel_image_v}-redis-${sentinel_redis_v}"
               UTILS_VERSION="${utils_image_v}-redis-${utils_redis_v}"
 
-              docker tag thomasjpfan/redis-look:$CIRCLE_BRANCH \
-                thomasjpfan/redis-look:$LOOK_VERSION
-              docker tag thomasjpfan/redis-sentinel:$CIRCLE_BRANCH \
-                thomasjpfan/redis-sentinel:$SENTINEL_VERSION
-              docker tag thomasjpfan/redis-utils:$CIRCLE_BRANCH \
-                thomasjpfan/redis-utils:$UTILS_VERSION
+              docker tag registry.int.mimikko.cn/redis-look:$CIRCLE_BRANCH \
+                registry.int.mimikko.cn/redis-look:$LOOK_VERSION
+              docker tag registry.int.mimikko.cn/redis-sentinel:$CIRCLE_BRANCH \
+                registry.int.mimikko.cn/redis-sentinel:$SENTINEL_VERSION
+              docker tag registry.int.mimikko.cn/redis-utils:$CIRCLE_BRANCH \
+                registry.int.mimikko.cn/redis-utils:$UTILS_VERSION
 
-              docker push thomasjpfan/redis-look:$LOOK_VERSION
-              docker push thomasjpfan/redis-sentinel:$SENTINEL_VERSION
-              docker push thomasjpfan/redis-utils:$UTILS_VERSION
+              docker push registry.int.mimikko.cn/redis-look:$LOOK_VERSION
+              docker push registry.int.mimikko.cn/redis-sentinel:$SENTINEL_VERSION
+              docker push registry.int.mimikko.cn/redis-utils:$UTILS_VERSION
 
-              docker tag thomasjpfan/redis-look:$CIRCLE_BRANCH \
-                thomasjpfan/redis-look:latest
-              docker tag thomasjpfan/redis-sentinel:$CIRCLE_BRANCH \
-                thomasjpfan/redis-sentinel:latest
-              docker tag thomasjpfan/redis-utils:$CIRCLE_BRANCH \
-                thomasjpfan/redis-utils:latest
+              docker tag registry.int.mimikko.cn/redis-look:$CIRCLE_BRANCH \
+                registry.int.mimikko.cn/redis-look:latest
+              docker tag registry.int.mimikko.cn/redis-sentinel:$CIRCLE_BRANCH \
+                registry.int.mimikko.cn/redis-sentinel:latest
+              docker tag registry.int.mimikko.cn/redis-utils:$CIRCLE_BRANCH \
+                registry.int.mimikko.cn/redis-utils:latest
 
-              docker push thomasjpfan/redis-look:latest
-              docker push thomasjpfan/redis-sentinel:latest
-              docker push thomasjpfan/redis-utils:latest
+              docker push registry.int.mimikko.cn/redis-look:latest
+              docker push registry.int.mimikko.cn/redis-sentinel:latest
+              docker push registry.int.mimikko.cn/redis-utils:latest
             fi
 
