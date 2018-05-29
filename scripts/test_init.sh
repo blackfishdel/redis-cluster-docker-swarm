@@ -11,3 +11,10 @@ docker cp scripts scripts:/
 echo "Starting init tests"
 docker run --rm --network redis --volumes-from scripts \
 	registry.docker-cn.com/library/redis:4.0.9-alpine sh /scripts/check_scaling.sh 2 2
+
+
+docker run --rm --network redis registry.docker-cn.com/library/redis:4.0.9-alpine redis-benchmark -h 10.0.0.5 -p 6379 -c 50 -n 10000
+
+docker run --rm --network redis registry.docker-cn.com/library/redis:4.0.9-alpine redis-benchmark -t set -r 100000 -n 1000000
+
+docker run --rm --network redis registry.docker-cn.com/library/redis:4.0.9-alpine redis-benchmark -h 10.0.0.5 -r 1000000 -n 2000000 -t get,set,lpush,lpop -P 16 -q
