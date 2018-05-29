@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+set -ex
 
 REDIS_SENTINEL_NAME="redis-sentinel"
 REDIS_MASTER_NAME="redismaster"
