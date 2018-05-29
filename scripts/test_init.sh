@@ -1,9 +1,9 @@
 #!/bin/bash
 
-set -e
+set -ex
 
 echo "Create stand in volume for scripts"
-docker create -v /scripts --name scripts alpine:3.6 /bin/true
+docker create -v /scripts --name scripts alpine:3 /bin/true
 
 echo "Moving check_scaling.sh to scripts"
 docker cp scripts scripts:/

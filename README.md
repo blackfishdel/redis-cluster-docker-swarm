@@ -27,7 +27,7 @@ To access the redis cluster outside of docker, port 6379 needs to be expose. Thi
 ```yaml
 ...
   redis:
-    image: thomasjpfan/redis-look
+    image: registry.int.mimikko.cn/redis-look
     ports:
       - "6379:6379"
 ...
@@ -47,6 +47,8 @@ docker stack ls && docker service ls && docker ps -a
 docker rm -f $(docker ps -a -q)
 
 docker rmi -f $(docker images -q)
+
+docker rmi -f $(docker images | grep 'none' | awk '{print $3}')
 ```
 ## Details
 
@@ -60,7 +62,7 @@ version: '3.1'
 services:
 
   redis-sentinel:
-    image: thomasjpfan/redis-sentinel
+    image: registry.int.mimikko.cn/redis-sentinel
     environment:
       - REDIS_IP=redis-zero
       - REDIS_MASTER_NAME=redismaster
@@ -70,7 +72,7 @@ services:
       - redis
 
   redis:
-    image: thomasjpfan/redis-look
+    image: registry.int.mimikko.cn/redis-look
     environment:
       - REDIS_SENTINEL_IP=redis-sentinel
       - REDIS_MASTER_NAME=redismaster
