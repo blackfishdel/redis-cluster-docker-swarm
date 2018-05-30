@@ -1,0 +1,6 @@
+SET: 23223.14 requests per second
+GET: 61242.61 requests per second
+LPUSH: 21514.63 requests per second
+LPOP: 24480.70 requests per second
+
+aof
