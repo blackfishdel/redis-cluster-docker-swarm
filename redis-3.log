@@ -4,3 +4,6 @@ LPUSH: 21514.63 requests per second
 LPOP: 24480.70 requests per second
 
 aof
+
+
+error 
