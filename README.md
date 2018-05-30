@@ -37,7 +37,7 @@ bash scripts/test_init.sh
 ```
 1. remove docker stack
 ```bash
-bash scripts/cleanup.sh
+bash scripts/cleanup.sh test-1
 ```
 1. show docker status
 ```bash
