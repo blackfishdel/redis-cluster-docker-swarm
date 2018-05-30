@@ -7,7 +7,7 @@ Quick and dirty Redis cluster taking advantage of Redis Sentinel for automatic f
 1. Setup docker swarm
 1. build images
 ```bash
-bash scripts/build.sh test-1
+bash scripts/build.sh test-3
 ```
 1. Create a overlay network:
 ```bash
@@ -16,7 +16,7 @@ docker network create --attachable --driver overlay redis
 1. Modify scripts/docker-compose.yml to how you want to deploy the stack.
 1. Run `scripts/bootstrap.sh`.
 ```bash
-bash scripts/bootstrap.sh test-1
+bash scripts/bootstrap.sh test-3
 ```
 1. Connect to with redis-cli
 ```bash
@@ -37,7 +37,7 @@ bash scripts/test_init.sh
 ```
 1. remove docker stack
 ```bash
-bash scripts/cleanup.sh test-1
+bash scripts/cleanup.sh test-3
 ```
 1. show docker status
 ```bash
