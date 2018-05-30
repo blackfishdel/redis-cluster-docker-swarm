@@ -49,6 +49,7 @@ docker rmi -f $(docker images -q)
 
 docker rmi -f $(docker images | grep 'none' | awk '{print $3}')
 ```
+
 ## Details
 
 A docker service called `redis-zero` is created to serve as the initial master for the redis sentinels to setup. The `redis-look` instances watches the redis sentinels for a master, and connects to `redis-zero` once a master has been decided. Once the dust has settled, remove the `redis-zero` instance and wait for failover to take over so a new redis-master will take over. Use `redis-utils` to reset sentinels so that its metadata is accurate with the correct state.
