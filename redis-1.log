@@ -4,4 +4,4 @@ LPUSH: 36382.82 requests per second
 LPOP: 42237.75 requests per second
 
 
-aof
+rdb

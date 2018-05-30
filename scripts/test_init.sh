@@ -21,4 +21,5 @@ docker run --rm --network redis --volumes-from scripts \
 # docker run --rm --network redis registry.docker-cn.com/library/redis:4.0.9-alpine redis-benchmark -h 10.0.0.12 -r 1000000 -n 2000000 -t get,set,lpush,lpop -P 16 -q > ~/redis-1.log
 #
 # docker run --rm --network redis registry.docker-cn.com/library/redis:4.0.9-alpine redis-benchmark -h 10.0.0.12 -r 1000000 -n 2000000 -t get,set,lpush,lpop -P 16 -q > ~/redis-2.log
-# docker run --rm --network redis registry.docker-cn.com/library/redis:4.0.9-alpine redis-benchmark -h 10.0.0.12 -r 1000000 -n 2000000 -t get,set,lpush,lpop -P 16 -q > ~/redis-3.log
+# docker run --rm --network redis registry.docker-cn.com/library/redis:4.0.9-alpine redis-benchmark -h 10.0.0.5 -r 1000000 -n 2000000 -t get,set,lpush,lpop -P 16 -q > ~/redis-3.log
+# docker run --rm --network redis registry.docker-cn.com/library/redis:4.0.9-alpine redis-benchmark -h 10.0.0.6 -r 1000000 -n 2000000 -t get,set,lpush,lpop -P 16 -q > ~/redis-4.log

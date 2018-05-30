@@ -2,3 +2,5 @@ SET: 145285.48 requests per second
 GET: 64989.93 requests per second
 LPUSH: 146327.19 requests per second
 LPOP: 150455.12 requests per second
+
+空白配置
