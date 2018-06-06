@@ -39,6 +39,18 @@ services:
     ports:
       - "6381:6379"
 
+  redis3:
+    image: registry.int.mimikko.cn/redis-look:${TAG:-latest}
+    environment:
+      - REDIS_SENTINEL_IP=redis-sentinel
+      - REDIS_MASTER_NAME=redismaster
+      - REDIS_SENTINEL_PORT=26379
+    deploy:
+      replicas: 1
+    networks:
+      - redis
+    ports:
+      - "6382:6379"
 
 networks:
   redis:
