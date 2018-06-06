@@ -1,6 +1,6 @@
 # Redis Cluster Cache for Docker Swarm
 
-[![CircleCI](https://circleci.com/gh/thomasjpfan/redis-cluster-docker-swarm/tree/master.svg?style=svg)](https://circleci.com/gh/thomasjpfan/redis-cluster-docker-swarm/tree/master)
+[![CircleCI](https://circleci.com/gh/registry.int.mimikko.cn/redis-cluster-docker-swarm/tree/master.svg?style=svg)](https://circleci.com/gh/registry.int.mimikko.cn/redis-cluster-docker-swarm/tree/master)
 
 Quick and dirty Redis cluster taking advantage of Redis Sentinel for automatic failover. Persistence is turned off by default.
 
@@ -31,7 +31,7 @@ To access the redis cluster outside of docker, port 6379 needs to be expose. Thi
 ```yaml
 ...
   redis:
-    image: thomasjpfan/redis-look
+    image: registry.int.mimikko.cn/redis-look
     ports:
       - "6379:6379"
 ...
@@ -49,7 +49,7 @@ version: '3.1'
 services:
 
   redis-sentinel:
-    image: thomasjpfan/redis-sentinel
+    image: registry.int.mimikko.cn/redis-sentinel
     environment:
       - REDIS_IP=redis-zero
       - REDIS_MASTER_NAME=redismaster
@@ -59,7 +59,7 @@ services:
       - redis
 
   redis:
-    image: thomasjpfan/redis-look
+    image: registry.int.mimikko.cn/redis-look
     environment:
       - REDIS_SENTINEL_IP=redis-sentinel
       - REDIS_MASTER_NAME=redismaster
