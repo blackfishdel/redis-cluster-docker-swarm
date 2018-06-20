@@ -14,7 +14,7 @@ services:
     networks:
       - redis
     ports:
-      - "26380:6379"
+      - "26380:26379"
 
   redis-sentinel2:
     image: registry.int.mimikko.cn/redis-sentinel:${TAG:-latest}
@@ -27,7 +27,7 @@ services:
     networks:
       - redis
     ports:
-      - "26381:6379"
+      - "26381:26379"
 
   redis-sentinel3:
     image: registry.int.mimikko.cn/redis-sentinel:${TAG:-latest}
@@ -40,7 +40,7 @@ services:
     networks:
       - redis
     ports:
-      - "26382:6379"
+      - "26382:26379"
 
   redis1:
     image: registry.int.mimikko.cn/redis-look:${TAG:-latest}
