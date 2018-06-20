@@ -8,6 +8,7 @@ services:
     environment:
       - REDIS_IP=redis-zero
       - REDIS_MASTER_NAME=redismaster
+      - REDIS_SENTINEL_NAME=redis-sentinel1
     deploy:
       replicas: 1
     networks:
@@ -20,6 +21,7 @@ services:
     environment:
       - REDIS_IP=redis-zero
       - REDIS_MASTER_NAME=redismaster
+      - REDIS_SENTINEL_NAME=redis-sentinel2
     deploy:
       replicas: 1
     networks:
@@ -32,6 +34,7 @@ services:
     environment:
       - REDIS_IP=redis-zero
       - REDIS_MASTER_NAME=redismaster
+      - REDIS_SENTINEL_NAME=redis-sentinel3
     deploy:
       replicas: 1
     networks:
