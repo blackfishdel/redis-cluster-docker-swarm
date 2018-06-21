@@ -19,8 +19,7 @@ COPY sentinel-4.0.9.conf ./sentinel.conf
 
 COPY sentinel-entrypoint.sh /usr/local/bin/entrypoint.sh
 
-RUN chown redis:redis /redis/* && \
-    chmod +x /usr/local/bin/entrypoint.sh
+RUN chown redis:redis /redis/* && chmod +x /usr/local/bin/entrypoint.sh
 
 EXPOSE 26379
 
