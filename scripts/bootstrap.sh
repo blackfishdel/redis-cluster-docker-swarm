@@ -6,7 +6,7 @@ export TAG=${1:-"latest"}
 
 NUM_OF_SENTINELS=3
 NUM_OF_REDIS=3
-REDIS_SENTINEL_NAME="redis-sentinel1"
+REDIS_SENTINEL_NAME="redis-sentinel"
 REDIS_MASTER_NAME="redismaster"
 
 echo "Starting redis-zero"
