@@ -6,8 +6,6 @@ ENV REDIS_SENTINEL_IP redis-sentinel
 ENV REDIS_MASTER_NAME redismaster
 ENV REDIS_SENTINEL_PORT 26379
 
-RUN mkdir /redis-data
-
 WORKDIR /redis
 
 COPY redis-4.0.9.conf ./redis.conf

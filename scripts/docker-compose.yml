@@ -5,8 +5,8 @@ services:
   redis-sentinel:
     image: registry.int.mimikko.cn/redis-sentinel:${TAG:-latest}
     environment:
-      - REDIS_IP=redis-zero
       - REDIS_MASTER_NAME=redismaster
+      - REDIS_IP=redis-zero
       - REDIS_SENTINEL_NAME=redis-sentinel
     deploy:
       replicas: 3
@@ -19,8 +19,6 @@ services:
       - REDIS_SENTINEL_IP=redis-sentinel
       - REDIS_MASTER_NAME=redismaster
       - REDIS_SENTINEL_PORT=26379
-    volumes:
-       - ~/redis1/redis-data:/redis-data
     deploy:
       replicas: 1
     networks:
@@ -34,8 +32,6 @@ services:
       - REDIS_SENTINEL_IP=redis-sentinel
       - REDIS_MASTER_NAME=redismaster
       - REDIS_SENTINEL_PORT=26379
-    volumes:
-       - ~/redis2/redis-data:/redis-data
     deploy:
       replicas: 1
     networks:
@@ -49,8 +45,6 @@ services:
       - REDIS_SENTINEL_IP=redis-sentinel
       - REDIS_MASTER_NAME=redismaster
       - REDIS_SENTINEL_PORT=26379
-    volumes:
-       - ~/redis3/redis-data:/redis-data
     deploy:
       replicas: 1
     networks:
