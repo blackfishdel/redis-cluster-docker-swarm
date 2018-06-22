@@ -15,6 +15,8 @@ docker service create --network redis --name redis-zero registry.docker-cn.com/l
 echo "Starting services"
 docker stack deploy -c docker-compose.yml cache
 
+sleep 10
+
 until [ "$(docker run --rm --network redis registry.int.mimikko.cn/redis-utils:$TAG \
 	$REDIS_SENTINEL_NAME $REDIS_MASTER_NAME \
 	value num-other-sentinels)" = "$((NUM_OF_SENTINELS - 1))" ]; do
