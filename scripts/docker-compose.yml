@@ -6,7 +6,7 @@ services:
     image: registry.int.mimikko.cn/redis-sentinel:${TAG:-latest}
     environment:
       - REDIS_MASTER_NAME=redismaster
-      - REDIS_MASTER_IP=192.168.199.85
+      - REDIS_MASTER_IP=106.14.213.217
       - REDIS_MASTER_PORT=6379
     deploy:
       replicas: 1
@@ -19,7 +19,7 @@ services:
     image: registry.int.mimikko.cn/redis-sentinel:${TAG:-latest}
     environment:
       - REDIS_MASTER_NAME=redismaster
-      - REDIS_MASTER_IP=192.168.199.85
+      - REDIS_MASTER_IP=106.14.213.217
       - REDIS_MASTER_PORT=6379
     deploy:
       replicas: 1
@@ -32,7 +32,7 @@ services:
     image: registry.int.mimikko.cn/redis-sentinel:${TAG:-latest}
     environment:
       - REDIS_MASTER_NAME=redismaster
-      - REDIS_MASTER_IP=192.168.199.85
+      - REDIS_MASTER_IP=106.14.213.217
       - REDIS_MASTER_PORT=6379
     deploy:
       replicas: 1
@@ -44,7 +44,7 @@ services:
   redis1:
     image: registry.int.mimikko.cn/redis-look:${TAG:-latest}
     environment:
-      - REDIS_SENTINEL_IP=192.168.199.85
+      - REDIS_SENTINEL_IP=106.14.213.217
       - REDIS_SENTINEL_PORT=26380
       - REDIS_MASTER_NAME=redismaster
     deploy:
@@ -57,7 +57,7 @@ services:
   redis2:
     image: registry.int.mimikko.cn/redis-look:${TAG:-latest}
     environment:
-      - REDIS_SENTINEL_IP=192.168.199.85
+      - REDIS_SENTINEL_IP=106.14.213.217
       - REDIS_SENTINEL_PORT=26381
       - REDIS_MASTER_NAME=redismaster
     deploy:
@@ -70,7 +70,7 @@ services:
   redis3:
     image: registry.int.mimikko.cn/redis-look:${TAG:-latest}
     environment:
-      - REDIS_SENTINEL_IP=192.168.199.85
+      - REDIS_SENTINEL_IP=106.14.213.217
       - REDIS_SENTINEL_PORT=26382
       - REDIS_MASTER_NAME=redismaster
     deploy:

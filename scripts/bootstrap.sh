@@ -3,7 +3,7 @@
 set -ex
 
 export TAG=${1:-"latest"}
-export REDIS_SENTINEL_IP=192.168.199.85
+export REDIS_SENTINEL_IP=106.14.213.217
 export REDIS_SENTINEL_PORT=26380
 
 echo "Starting redis-zero"
