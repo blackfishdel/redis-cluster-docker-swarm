@@ -3,8 +3,8 @@ FROM docker.mirrors.ustc.edu.cn/library/redis:4.0.9-alpine
 LABEL version="1.0.0"
 
 ENV REDIS_SENTINEL_IP redis-sentinel
-ENV REDIS_MASTER_NAME redismaster
 ENV REDIS_SENTINEL_PORT 26379
+ENV REDIS_MASTER_NAME redismaster
 
 WORKDIR /redis
 

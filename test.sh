@@ -28,3 +28,10 @@ $(redis-cli -h $ip -p $port sentinel master $master_name | grep -A 1 $key | tail
 redis-cli -h 106.14.213.217 -p 26380 ping
 
 docker build -t registry.int.mimikko.cn/redis-sentinel:latest ../redis-sentinel
+
+redis-cli -h 106.14.213.217 -p 26380 sentinel master redismaster | grep -A 1 "ip" | tail -n 1
+
+redis-cli -h 139.219.142.114 -p 26380 sentinel master redismaster | grep -A 1 "ip" | tail -n 1
+
+
+139.219.142.114
