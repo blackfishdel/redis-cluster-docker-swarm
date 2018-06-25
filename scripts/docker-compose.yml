@@ -2,38 +2,64 @@ version: '3.2'
 
 services:
 
-  redis-sentinel:
+  redis-sentinel1:
     image: registry.int.mimikko.cn/redis-sentinel:${TAG:-latest}
     environment:
       - REDIS_MASTER_NAME=redismaster
-      - REDIS_IP=redis-zero
-      - REDIS_SENTINEL_NAME=redis-sentinel
+      - REDIS_MASTER_IP=192.168.199.85
+      - REDIS_MASTER_PORT=6379
     deploy:
-      replicas: 3
-    networks:
-      - redis
+      replicas: 1
+    # networks:
+    #   - redis
     ports:
       - "26380:26379"
 
-  redis1:
-    image: registry.int.mimikko.cn/redis-look:${TAG:-latest}
+  redis-sentinel2:
+    image: registry.int.mimikko.cn/redis-sentinel:${TAG:-latest}
     environment:
-      - REDIS_SENTINEL_IP=redis-sentinel
       - REDIS_MASTER_NAME=redismaster
-      - REDIS_SENTINEL_PORT=26379
+      - REDIS_MASTER_IP=192.168.199.85
+      - REDIS_MASTER_PORT=6379
+    deploy:
+      replicas: 1
+    # networks:
+    #   - redis
+    ports:
+      - "26381:26379"
+
+  redis-sentinel3:
+    image: registry.int.mimikko.cn/redis-sentinel:${TAG:-latest}
+    environment:
+      - REDIS_MASTER_NAME=redismaster
+      - REDIS_MASTER_IP=192.168.199.85
+      - REDIS_MASTER_PORT=6379
     deploy:
       replicas: 1
     networks:
       - redis
+    ports:
+      - "26382:26379"
+
+  redis1:
+    image: registry.int.mimikko.cn/redis-look:${TAG:-latest}
+    environment:
+      - REDIS_SENTINEL_IP=192.168.199.85
+      - REDIS_SENTINEL_PORT=26380
+      - REDIS_MASTER_NAME=redismaster
+    deploy:
+      replicas: 1
+    # networks:
+    #   - redis
     ports:
       - "6380:6379"
 
   redis2:
     image: registry.int.mimikko.cn/redis-look:${TAG:-latest}
     environment:
-      - REDIS_SENTINEL_IP=redis-sentinel
+      - REDIS_SENTINEL_IP=192.168.199.85
+      - REDIS_SENTINEL_PORT=26381
       - REDIS_MASTER_NAME=redismaster
-      - REDIS_SENTINEL_PORT=26379
     deploy:
       replicas: 1
     networks:
@@ -44,16 +70,16 @@ services:
   redis3:
     image: registry.int.mimikko.cn/redis-look:${TAG:-latest}
     environment:
-      - REDIS_SENTINEL_IP=redis-sentinel
+      - REDIS_SENTINEL_IP=192.168.199.85
+      - REDIS_SENTINEL_PORT=26382
       - REDIS_MASTER_NAME=redismaster
-      - REDIS_SENTINEL_PORT=26379
     deploy:
       replicas: 1
-    networks:
-      - redis
+    # networks:
+    #   - redis
     ports:
       - "6382:6379"
 
-networks:
-  redis:
-    external: true
+# networks:
+#   redis:
+#     external: true

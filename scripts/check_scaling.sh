@@ -4,7 +4,7 @@ set -e
 
 sentinels="$1"
 slaves="$2"
-HOST="-h redis-sentinel -p 26379"
+HOST="-h redis-sentinel1 -p 26379"
 
 echo "Able to connect to sentinel"
 redis-cli $HOST ping
