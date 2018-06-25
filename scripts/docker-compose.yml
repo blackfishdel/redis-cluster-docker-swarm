@@ -3,7 +3,7 @@ version: '3.2'
 services:
 
   redis-sentinel1:
-    image: registry.int.mimikko.cn/redis-sentinel:${TAG:-latest}
+    image: registry.int.mimikko.cn/redis-sentinel:latest
     environment:
       - REDIS_MASTER_NAME=redismaster
       - REDIS_MASTER_IP=106.14.213.217
@@ -16,7 +16,7 @@ services:
       - "26380:26379"
 
   redis-sentinel2:
-    image: registry.int.mimikko.cn/redis-sentinel:${TAG:-latest}
+    image: registry.int.mimikko.cn/redis-sentinel:latest
     environment:
       - REDIS_MASTER_NAME=redismaster
       - REDIS_MASTER_IP=106.14.213.217
@@ -29,7 +29,7 @@ services:
       - "26381:26379"
 
   redis-sentinel3:
-    image: registry.int.mimikko.cn/redis-sentinel:${TAG:-latest}
+    image: registry.int.mimikko.cn/redis-sentinel:latest
     environment:
       - REDIS_MASTER_NAME=redismaster
       - REDIS_MASTER_IP=106.14.213.217
@@ -42,7 +42,7 @@ services:
       - "26382:26379"
 
   redis1:
-    image: registry.int.mimikko.cn/redis-look:${TAG:-latest}
+    image: registry.int.mimikko.cn/redis-look:latest
     environment:
       - REDIS_SENTINEL_IP=106.14.213.217
       - REDIS_SENTINEL_PORT=26380
@@ -55,7 +55,7 @@ services:
       - "6380:6379"
 
   redis2:
-    image: registry.int.mimikko.cn/redis-look:${TAG:-latest}
+    image: registry.int.mimikko.cn/redis-look:latest
     environment:
       - REDIS_SENTINEL_IP=106.14.213.217
       - REDIS_SENTINEL_PORT=26381
@@ -68,7 +68,7 @@ services:
       - "6381:6379"
 
   redis3:
-    image: registry.int.mimikko.cn/redis-look:${TAG:-latest}
+    image: registry.int.mimikko.cn/redis-look:latest
     environment:
       - REDIS_SENTINEL_IP=106.14.213.217
       - REDIS_SENTINEL_PORT=26382
