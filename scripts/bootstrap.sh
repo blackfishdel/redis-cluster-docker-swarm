@@ -7,8 +7,8 @@ export REDIS_SENTINEL_IP=106.14.213.217
 export REDIS_SENTINEL_PORT=26380
 
 echo "Starting redis-zero"
-# docker service create --network redis --publish 6379:6379 --name redis-zero registry.docker-cn.com/library/redis:4.0.9-alpine
-docker service create --publish 6379:6379 --name redis-zero registry.docker-cn.com/library/redis:4.0.9-alpine
+# docker service create --network redis --publish 6379:6379 --name redis-zero docker.mirrors.ustc.edu.cn/library/redis:4.0.9-alpine
+docker service create --publish 6379:6379 --name redis-zero docker.mirrors.ustc.edu.cn/library/redis:4.0.9-alpine
 
 sleep 10
 

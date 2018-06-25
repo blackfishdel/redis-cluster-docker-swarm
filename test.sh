@@ -26,3 +26,5 @@ redis-cli -h $REDIS_MASTER_IP -p 6379 ping
 $(redis-cli -h $ip -p $port sentinel master $master_name | grep -A 1 $key | tail -n1)
 
 redis-cli -h 106.14.213.217 -p 26380 ping
+
+docker build -t registry.int.mimikko.cn/redis-sentinel:latest ../redis-sentinel
