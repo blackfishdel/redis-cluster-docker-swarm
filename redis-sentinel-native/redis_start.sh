@@ -25,9 +25,9 @@ for i in {1..3} ; do
   sed -i "s/{{ SENTINEL_PORT }}/2638$i/g" /root/xiepeng/redis-cluster-docker-swarm/redis-sentinel-native/sentinel$i.conf
   sed -i "s/{{ REDIS_MASTER_NAME }}/$REDIS_MASTER_NAME/g" /root/xiepeng/redis-cluster-docker-swarm/redis-sentinel-native/sentinel$i.conf
   sed -i "s/{{ REDIS_MASTER_IP }}/$REDIS_MASTER_IP/g" /root/xiepeng/redis-cluster-docker-swarm/redis-sentinel-native/sentinel$i.conf
-  sed -i "s/{{ REDIS_MASTER_PORT }}/$REDIS_MASTER_PORT/g" /root/xiepeng/redis-cluster-docker-swarm/redis-sentinel-native/sentine$i.conf
+  sed -i "s/{{ REDIS_MASTER_PORT }}/$REDIS_MASTER_PORT/g" /root/xiepeng/redis-cluster-docker-swarm/redis-sentinel-native/sentinel$i.conf
 
-  sed -i "s/{{ SENTINEL_QUORUM }}/$SENTINEL_QUORUM/g" /root/xiepeng/redis-cluster-docker-swarm/redis-sentinel-native/sentine$i.conf
+  sed -i "s/{{ SENTINEL_QUORUM }}/$SENTINEL_QUORUM/g" /root/xiepeng/redis-cluster-docker-swarm/redis-sentinel-native/sentinel$i.conf
   sed -i "s/{{ SENTINEL_DOWN_AFTER }}/$SENTINEL_DOWN_AFTER/g" /root/xiepeng/redis-cluster-docker-swarm/redis-sentinel-native/sentinel$i.conf
   sed -i "s/{{ SENTINEL_FAILOVER }}/$SENTINEL_FAILOVER/g" /root/xiepeng/redis-cluster-docker-swarm/redis-sentinel-native/sentinel$i.conf
 
