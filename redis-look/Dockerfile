@@ -8,12 +8,12 @@ ENV REDIS_SENTINEL_PORT 26379
 
 WORKDIR /redis
 
-COPY redis-4.0.9.conf ./redis.conf
+COPY redis.conf ./
 
-COPY redis-entrypoint.sh /usr/local/bin/entrypoint.sh
+COPY redis-entrypoint.sh /usr/local/bin/
 
-RUN chmod +x /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/redis-entrypoint.sh
 
 EXPOSE 26379
 
-ENTRYPOINT ["entrypoint.sh"]
+ENTRYPOINT ["redis-entrypoint.sh"]

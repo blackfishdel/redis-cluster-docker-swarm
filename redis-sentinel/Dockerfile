@@ -13,12 +13,12 @@ RUN mkdir -p /redis
 
 WORKDIR /redis
 
-COPY sentinel-4.0.9.conf ./sentinel.conf
+COPY sentinel.conf ./
 
-COPY sentinel-entrypoint.sh /usr/local/bin/entrypoint.sh
+COPY sentinel-entrypoint.sh /usr/local/bin/
 
-RUN chown redis:redis /redis/* && chmod +x /usr/local/bin/entrypoint.sh
+RUN chown redis:redis /redis/* && chmod +x /usr/local/bin/sentinel-entrypoint.sh
 
 EXPOSE 26379
 
-ENTRYPOINT ["entrypoint.sh"]
+ENTRYPOINT ["sentinel-entrypoint.sh"]
