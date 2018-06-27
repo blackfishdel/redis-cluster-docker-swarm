@@ -35,3 +35,6 @@ redis-cli -h 139.219.142.114 -p 26380 sentinel master redismaster | grep -A 1 "i
 
 
 139.219.142.114
+
+
+curl -s -S "https://registry.hub.docker.com/v2/repositories/davidcaste/docker-alpine-java-unlimited-jce/tags/" | jq '."results"[]["name"]' |sort
