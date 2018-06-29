@@ -16,7 +16,9 @@ sed -i "s/{{ REDIS_PORT }}/$REDIS_PORT2/g" /root/xiepeng/redis-cluster-docker-sw
 sed -i "s/{{ REDIS_PORT }}/$REDIS_PORT3/g" /root/xiepeng/redis-cluster-docker-swarm/redis-sentinel-native/redis3.conf
 
 /root/redis-4.0.10/src/redis-server /root/xiepeng/redis-cluster-docker-swarm/redis-sentinel-native/redis1.conf
+sleep 2
 /root/redis-4.0.10/src/redis-server /root/xiepeng/redis-cluster-docker-swarm/redis-sentinel-native/redis2.conf --slaveof $REDIS_MASTER_IP $REDIS_MASTER_PORT
+sleep 2
 /root/redis-4.0.10/src/redis-server /root/xiepeng/redis-cluster-docker-swarm/redis-sentinel-native/redis3.conf --slaveof $REDIS_MASTER_IP $REDIS_MASTER_PORT
 
 
@@ -32,4 +34,5 @@ for i in {1..3} ; do
   sed -i "s/{{ SENTINEL_FAILOVER }}/$SENTINEL_FAILOVER/g" /root/xiepeng/redis-cluster-docker-swarm/redis-sentinel-native/sentinel$i.conf
 
   /root/redis-4.0.10/src/redis-server /root/xiepeng/redis-cluster-docker-swarm/redis-sentinel-native/sentinel$i.conf --sentinel
+  sleep 2
 done

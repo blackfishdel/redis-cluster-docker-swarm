@@ -38,3 +38,15 @@ redis-cli -h 139.219.142.114 -p 26380 sentinel master redismaster | grep -A 1 "i
 
 
 curl -s -S "https://registry.hub.docker.com/v2/repositories/davidcaste/docker-alpine-java-unlimited-jce/tags/" | jq '."results"[]["name"]' |sort
+
+
+redis-dump -h 139.219.142.114 -p 6381 -d 2 > ~/Downloads/db.txt
+
+cat ~/Downloads/db.txt | redis-cli -h 139.219.142.114 -p 6381 -n 2
+
+
+docker run -d --hostname my-rabbit --name some-rabbit docker.mirrors.ustc.edu.cn/library/rabbitmq:3
+
+docker run -d --hostname my-rabbit --name some-rabbit -p 15672:15672 -p 5672:5672 docker.mirrors.ustc.edu.cn/library/rabbitmq:3-management
+
+echo "keys token*" | redis-cli -h 106.14.213.217 -p 6381 -n 2 > ~/keys.csv
