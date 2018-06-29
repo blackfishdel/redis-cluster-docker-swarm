@@ -1,57 +1,82 @@
 version: '3.2'
 
-
 services:
 
-  redis-sentinel:
+  redis-sentinel1:
     image: registry.int.mimikko.cn/redis-sentinel:${TAG:-latest}
+    labels:
+      - "staging=appredis"
     environment:
-      - REDIS_IP=redis-zero
-      - REDIS_MASTER_NAME=redismaster
+      - "REDIS_IP=redis-zero"
+      - "REDIS_MASTER_NAME=redismaster"
     deploy:
-      replicas: 3
+      replicas: 1
     networks:
-      - redis
+      - "mimikko-network"
+
+  redis-sentinel2:
+    image: registry.int.mimikko.cn/redis-sentinel:${TAG:-latest}
+    labels:
+      - "staging=appredis"
+    environment:
+      - "REDIS_IP=redis-zero"
+      - "REDIS_MASTER_NAME=redismaster"
+    deploy:
+      replicas: 1
+    networks:
+      - "mimikko-network"
+
+  redis-sentinel3:
+    image: registry.int.mimikko.cn/redis-sentinel:${TAG:-latest}
+    labels:
+      - "staging=appredis"
+    environment:
+      - "REDIS_IP=redis-zero"
+      - "REDIS_MASTER_NAME=redismaster"
+    deploy:
+      replicas: 1
+    networks:
+      - "mimikko-network"
 
   redis1:
     image: registry.int.mimikko.cn/redis-look:${TAG:-latest}
+    labels:
+      - "staging=appredis"
     environment:
-      - REDIS_SENTINEL_IP=redis-sentinel
-      - REDIS_MASTER_NAME=redismaster
-      - REDIS_SENTINEL_PORT=26379
+      - "REDIS_SENTINEL_IP=redis-sentinel1"
+      - "REDIS_MASTER_NAME=redismaster"
+      - "REDIS_SENTINEL_PORT=26379"
     deploy:
       replicas: 1
     networks:
-      - redis
-    ports:
-      - "6380:6379"
+      - "mimikko-network"
 
   redis2:
     image: registry.int.mimikko.cn/redis-look:${TAG:-latest}
+    labels:
+      - "staging=appredis"
     environment:
-      - REDIS_SENTINEL_IP=redis-sentinel
-      - REDIS_MASTER_NAME=redismaster
-      - REDIS_SENTINEL_PORT=26379
+      - "REDIS_SENTINEL_IP=redis-sentinel1"
+      - "REDIS_MASTER_NAME=redismaster"
+      - "REDIS_SENTINEL_PORT=26379"
     deploy:
       replicas: 1
     networks:
-      - redis
-    ports:
-      - "6381:6379"
+      - "mimikko-network"
 
   redis3:
     image: registry.int.mimikko.cn/redis-look:${TAG:-latest}
+    labels:
+      - "staging=appredis"
     environment:
-      - REDIS_SENTINEL_IP=redis-sentinel
-      - REDIS_MASTER_NAME=redismaster
-      - REDIS_SENTINEL_PORT=26379
+      - "REDIS_SENTINEL_IP=redis-sentinel1"
+      - "REDIS_MASTER_NAME=redismaster"
+      - "REDIS_SENTINEL_PORT=26379"
     deploy:
       replicas: 1
     networks:
-      - redis
-    ports:
-      - "6382:6379"
+      - "mimikko-network"
 
 networks:
-  redis:
+  mimikko-network:
     external: true

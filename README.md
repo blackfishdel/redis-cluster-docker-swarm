@@ -22,7 +22,7 @@ bash bootstrap.sh latest
 4. 连接redis-cli
 
 ```bash
-docker run --rm --network redis -ti registry.docker-cn.com/library/redis:4.0.9-alpine redis-cli -h redis
+docker run --rm --network redis -ti docker.mirrors.ustc.edu.cn/library/redis:4.0.9-alpine redis-cli -h redis
 ```
 
 外部项目要访问docker的redis集群，需要公开端口6379。这可以通过向docker-compose文件添加端口来完成：
@@ -119,6 +119,6 @@ docker run -d \
   --volume /var/run:/var/run:rw \
   --volume /sys:/sys:ro \
   --volume /var/lib/docker/:/var/lib/docker:ro \
-  registry.docker-cn.com/google/cadvisor
+  docker.mirrors.ustc.edu.cn/google/cadvisor
 
 ```

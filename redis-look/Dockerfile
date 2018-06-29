@@ -1,4 +1,4 @@
-FROM registry.docker-cn.com/library/redis:4.0.9-alpine
+FROM docker.mirrors.ustc.edu.cn/library/redis:4.0.9-alpine
 
 LABEL version="1.0.0"
 

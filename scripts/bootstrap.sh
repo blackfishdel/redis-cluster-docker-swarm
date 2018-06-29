@@ -6,11 +6,11 @@ export TAG=${1:-"latest"}
 
 NUM_OF_SENTINELS=3
 NUM_OF_REDIS=3
-REDIS_SENTINEL_NAME="redis-sentinel"
+REDIS_SENTINEL_NAME="redis-sentinel1"
 REDIS_MASTER_NAME="redismaster"
 
 echo "Starting redis-zero"
-docker service create --network redis --name redis-zero registry.docker-cn.com/library/redis:4.0.9-alpine
+docker service create --network redis --name redis-zero docker.mirrors.ustc.edu.cn/library/redis:4.0.9-alpine
 
 echo "Starting services"
 docker stack deploy -c docker-compose.yml cache

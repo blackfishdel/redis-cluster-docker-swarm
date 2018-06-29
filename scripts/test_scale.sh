@@ -23,5 +23,5 @@ docker run --rm --network redis registry.int.mimikko.cn/redis-utils:$TAG \
 
 echo "Starting following tests"
 docker run --rm --network redis --volumes-from scripts \
-	registry.docker-cn.com/library/redis:4.0.9-alpine \
+	docker.mirrors.ustc.edu.cn/library/redis:4.0.9-alpine \
 		sh /scripts/check_scaling.sh 4 4
