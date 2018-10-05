@@ -12,6 +12,7 @@ docker network create --attachable --driver overlay redis
 ```
 
 2. 修改 scripts/docker-compose.yml。
+1. 先构建项目, 执行build.sh
 3. 运行 `bootstrap.sh`。
 
 ```bash
